@@ -32,11 +32,12 @@
             
             <a href="complaint.jsp">Post a Complaint</a>
             <a href="status.jsp">
-                <%
+                
+                Check Status</a>
+            <%
                     String email = session.getAttribute("emails").toString();
                     session.setAttribute("id", email);
                 %>
-                Check Status</a>
             <a href="DSW.jsp">Write to DSW</a>
         </div>
         <div id="main">

@@ -90,7 +90,7 @@ setTimeout("disableBackButton()", 5);
                     String cat="",dat="";
                     Connection con = null;
                     Class.forName("com.mysql.jdbc.Driver");
-             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull","root","nanu");
+             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull","root","1234");
                     String q = "select comp_cat,comp_date from complaints where amity_id='"+id+"' order by comp_date desc";
             Statement stmt = con.createStatement();
            ResultSet rs =stmt.executeQuery(q);

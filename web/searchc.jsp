@@ -59,8 +59,9 @@
                             <option>select</option>
                             <option>mess</option>
                             <option>library</option>
+                            <option>Hostel</option>
                         </select>
-                         <button type="submit">submit</button> 
+                        <button type="submit">submit</button> 
                     </form>
                     <br><br>
                     <%
@@ -85,7 +86,7 @@
                                 String amity_id = "", comp_id = "", cat = "", desc = "", dat = "", status = "";
                                 Connection con = null;
                                 Class.forName("com.mysql.jdbc.Driver");
-                                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull", "root", "nanu");
+                                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull", "root", "1234");
                                 ResultSet rs = connfac.getCon().createStatement().executeQuery("select * from complaints where comp_cat='" + cgroup + "'");
                                 while (rs.next()) {
                                     t1 = rs.getString(1);
@@ -94,6 +95,7 @@
                                     t4 = rs.getString(4);
                                     t5 = rs.getString(5);
                                     t6 = rs.getString(6);
+
                             %>
                             <tr>
                                 <td> <%=t1%> </td>
@@ -101,30 +103,38 @@
                                 <td> <%=t3%> </td>
                                 <td> <%=t4%> </td>
                                 <td> <%=t5%> </td>
-                                <td> <%=t6%> </td>
+                                <td> <%=t6%></td>
+                        
                                 <td>
-
+                                    
                                     <%  if (rs.getString(6).equals("Pending")) {%>
-                                    <form action="Chgstatus1" method="Post">
+                                    <form action="Chgstatus1" method="Get">
                                         <input type="hidden" name="cid" value="<%=t2%>">
+                                       
                                         <input type="submit" value="Processing">
 
                                     </form>
 
                                     <%  } else if (rs.getString(6).equals("Processing")) {%>
-                                    <form action="chgStatus2" method="Post">
-                                        <input type="hidden" name="id" value="<%=t2%>">
-                                        <input type="submit" value="Completed">
+                                    <form action="chgstatus3" method="Get">
+                                        <input type="hidden" name="cid" value="<%=t2%>">
+                                        <%--<select class="form-control" onchange="this.form.submit();>
+                                            <option value="default" selected="">Select your action</option>
+                                            <option value="Processing">Processing</option>
+                                            <option value="Resolved">Resolved</option>
+                                        </select>--%>
+                                        <input type="submit" value="Resolved">
                                     </form>
                                     <%
                                     } else {
                                     %>
                                     <input type="hidden" name="id" value="<%=t2%>">
-                                    <input type="text" value="completed"
+                                    No Action
 
 
                                            <%  }%>
                                 </td>
+                                    
                             </tr>
 
 

@@ -64,6 +64,14 @@
         <servlet-name>review2</servlet-name>
         <servlet-class>review2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminlogin</servlet-name>
+        <servlet-class>adminlogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>chgstatus3</servlet-name>
+        <servlet-class>chgstatus3</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>regis</servlet-name>
         <url-pattern>/regis</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>review2</servlet-name>
         <url-pattern>/review2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminlogin</servlet-name>
+        <url-pattern>/adminlogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>chgstatus3</servlet-name>
+        <url-pattern>/chgstatus3</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>10</session-timeout>
