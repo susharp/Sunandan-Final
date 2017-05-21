@@ -45,12 +45,12 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("\n");
       out.write("\n");
-      out.write("<html ng-app=\"DSWMatter\">\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<html ng-app=\"myApp\">\n");
       out.write("    <head>\n");
       out.write("        <!--Css-->\n");
       out.write("        <link rel=\"stylesheet\" href=\"css/complaint.css\">\n");
@@ -60,9 +60,28 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"css/dsw.css\">\n");
       out.write("        <script src=\"js/jquery-3.1.1.js\"></script>\n");
       out.write("        <script src=\"js/bootstrap.min.js\"></script>\n");
-      out.write("        <script src=\"js/angular.min.js\"></script>\n");
       out.write("        <script src=\"js/app.js\"></script>\n");
       out.write("        <script src=\"js/DSWController.js\"></script>\n");
+      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js\"></script>\n");
+      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js\"></script>\n");
+      out.write("        <script>\n");
+      out.write("            var app = angular.module(\"myApp\", [\"ngRoute\"]);\n");
+      out.write("            app.config(function ($routeProvider) {\n");
+      out.write("                $routeProvider\n");
+      out.write("                        .when(\"/\", {\n");
+      out.write("                            templateUrl: \"tables/mess.html\"\n");
+      out.write("                        })\n");
+      out.write("                        .when(\"/#mess\", {\n");
+      out.write("                            templateUrl: \"tables/mess.html\"\n");
+      out.write("                        })\n");
+      out.write("                        .when(\"/#SRC\", {\n");
+      out.write("                            templateUrl: \"tables/SRC.html\"\n");
+      out.write("                        })\n");
+      out.write("                        .when(\"/#ASET\", {\n");
+      out.write("                            templateUrl: \"tables/ASET.html\"\n");
+      out.write("                        });\n");
+      out.write("            });\n");
+      out.write("        </script>\n");
       out.write("        <script>\n");
       out.write("            $(document).ready(function () {\n");
       out.write("                $('.dropdown-submenu a.test').on(\"click\", function (e) {\n");
@@ -73,7 +92,7 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            });\n");
       out.write("        </script>\n");
       out.write("    </head>\n");
-      out.write("    <body ng-controller=\"DSWController\">\n");
+      out.write("    <body>\n");
       out.write("        <nav class=\"navbar\">\n");
       out.write("            <div class=\"navbar-inner\">\n");
       out.write("                <a><img src=\"images/logo.png\" width=\"100%\" height=\"100%\"></a>\n");
@@ -102,13 +121,28 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"text-center\">\n");
       out.write("                    <form action=\"searchc.jsp\" method=\"post\">\n");
-      out.write("                        <select name=\"cgroup\">\n");
-      out.write("                            <option>select</option>\n");
-      out.write("                            <option>mess</option>\n");
-      out.write("                            <option>library</option>\n");
-      out.write("                            <option>Hostel</option>\n");
+      out.write("                        <select id=\"options\" onchange=\"member(this.id, 'label-mem')\" data-live-search=\"true\" name=\"cgroup\">\n");
+      out.write("                            <optgroup label=\"Food and Hostel\">\n");
+      out.write("                                <option class=\"text-center\" id=\"Mess\" value=\"#mess\">Mess</option>\n");
+      out.write("                                <option class=\"text-center\" id=\"Food Trucks\" value=\"Food Trucks\">Food Trucks</option>\n");
+      out.write("                                <option class=\"text-center\" id=\"Hostel\" value=\"Hostel\">Hostel</option>\n");
+      out.write("                            </optgroup>\n");
+      out.write("                            <optgroup label=\"Medical\">\n");
+      out.write("                                <option class=\"text-center\" id=\"MI Room\" value=\"MI Room\">MI Room</option>\n");
+      out.write("                            </optgroup>\n");
+      out.write("                            <optgroup label=\"Transport and Security\">\n");
+      out.write("                                <option class=\"text-center\" id=\"Transport\" value=\"Transport\">Transport</option>\n");
+      out.write("                            </optgroup>\n");
+      out.write("                            <optgroup label=\"Fees and Accounts\">\n");
+      out.write("                                <option class=\"text-center\" id=\"Fees\" value=\"Fees and Accounts\">Fees and Accounts</option>\n");
+      out.write("                            </optgroup>\n");
+      out.write("                            <optgroup label=\"Other\">\n");
+      out.write("                                <option class=\"text-center\" id=\"Library\" value=\"Library\">Library</option>\n");
+      out.write("                                <option class=\"text-center\" id=\"SRC\" value=\"#SRC\">Student Resource Center (SRC)</option>\n");
+      out.write("                                <option class=\"text-center\" id=\"IT\" value=\"#ASET\">ASET</option>\n");
+      out.write("                            </optgroup>\n");
       out.write("                        </select>\n");
-      out.write("                        <button type=\"submit\">submit</button> \n");
+      out.write("                        <button type=\"submit\" class=\"send\">submit</button> \n");
       out.write("                    </form>\n");
       out.write("                    <br><br>\n");
       out.write("                    ");
@@ -118,112 +152,117 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
                     
       out.write("\n");
       out.write("                    <br><br><br>\n");
-      out.write("                    <table class=\"table table-bordered table-responsive\">\n");
-      out.write("                        <thead>\n");
-      out.write("                            <tr>\n");
-      out.write("                                <th class=\"text-center\">amity_id</th>\n");
-      out.write("                                <th class=\"text-center\">comp_id</th>\n");
-      out.write("                                <th class=\"text-center\">Comp_cat</th>\n");
-      out.write("                                <th class=\"text-center\">Comp_desc</th>\n");
-      out.write("                                <th class=\"text-center\">date</th>\n");
-      out.write("                                <th class=\"text-center\">status</th>\n");
-      out.write("                                <th class=\"text-center\">Action</th>\n");
+      out.write("                    <section id=\"table1\">\n");
+      out.write("                        <table class=\"table table-bordered table-responsive\">\n");
+      out.write("                            <thead>\n");
+      out.write("                                <tr>\n");
+      out.write("                                    <th class=\"text-center\">amity_id</th>\n");
+      out.write("                                    <th class=\"text-center\">comp_id</th>\n");
+      out.write("                                    <th class=\"text-center\">Comp_cat</th>\n");
+      out.write("                                    <th class=\"text-center\">Comp_desc</th>\n");
+      out.write("                                    <th class=\"text-center\">date</th>\n");
+      out.write("                                    <th class=\"text-center\">status</th>\n");
+      out.write("                                    <th class=\"text-center\">Action</th>\n");
       out.write("\n");
-      out.write("                            </tr>\n");
-      out.write("                            ");
+      out.write("                                </tr>\n");
+      out.write("                            </thead>\n");
+      out.write("                            <tbody>\n");
+      out.write("                                ");
 
-                                String t1, t2, t3, t4, t5, t6;
-                                String amity_id = "", comp_id = "", cat = "", desc = "", dat = "", status = "";
-                                Connection con = null;
-                                Class.forName("com.mysql.jdbc.Driver");
-                                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull", "root", "1234");
-                                ResultSet rs = connfac.getCon().createStatement().executeQuery("select * from complaints where comp_cat='" + cgroup + "'");
-                                while (rs.next()) {
-                                    t1 = rs.getString(1);
-                                    t2 = rs.getString(2);
-                                    t3 = rs.getString(3);
-                                    t4 = rs.getString(4);
-                                    t5 = rs.getString(5);
-                                    t6 = rs.getString(6);
+                                    String t1, t2, t3, t4, t5, t6;
+                                    String amity_id = "", comp_id = "", cat = "", desc = "", dat = "", status = "";
+                                    Connection con = null;
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull", "root", "1234");
+                                    ResultSet rs = connfac.getCon().createStatement().executeQuery("select * from complaints where comp_cat='" + cgroup + "'");
+                                    while (rs.next()) {
+                                        t1 = rs.getString(1);
+                                        t2 = rs.getString(2);
+                                        t3 = rs.getString(3);
+                                        t4 = rs.getString(4);
+                                        t5 = rs.getString(5);
+                                        t6 = rs.getString(6);
 
-                            
+                                
       out.write("\n");
-      out.write("                            <tr>\n");
-      out.write("                                <td> ");
+      out.write("                                <tr>\n");
+      out.write("                                    <td> ");
       out.print(t1);
       out.write(" </td>\n");
-      out.write("                                <td> ");
+      out.write("                                    <td> ");
       out.print(t2);
       out.write(" </td>\n");
-      out.write("                                <td> ");
+      out.write("                                    <td> ");
       out.print(t3);
       out.write(" </td>\n");
-      out.write("                                <td> ");
+      out.write("                                    <td> ");
       out.print(t4);
       out.write(" </td>\n");
-      out.write("                                <td> ");
+      out.write("                                    <td> ");
       out.print(t5);
       out.write(" </td>\n");
-      out.write("                                <td> ");
+      out.write("                                    <td> ");
       out.print(t6);
       out.write("</td>\n");
-      out.write("                        \n");
-      out.write("                                <td>\n");
-      out.write("                                    \n");
-      out.write("                                    ");
+      out.write("\n");
+      out.write("                                    <td>\n");
+      out.write("\n");
+      out.write("                                        ");
   if (rs.getString(6).equals("Pending")) {
       out.write("\n");
-      out.write("                                    <form action=\"Chgstatus1\" method=\"Get\">\n");
-      out.write("                                        <input type=\"hidden\" name=\"cid\" value=\"");
+      out.write("                                        <form action=\"Chgstatus1\" method=\"Get\">\n");
+      out.write("                                            <input type=\"hidden\" name=\"cid\" value=\"");
       out.print(t2);
       out.write("\">\n");
-      out.write("                                       \n");
-      out.write("                                        <input type=\"submit\" value=\"Processing\">\n");
       out.write("\n");
-      out.write("                                    </form>\n");
+      out.write("                                            <input type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"button\" value=\"Processing\">\n");
       out.write("\n");
-      out.write("                                    ");
+      out.write("                                        </form>\n");
+      out.write("\n");
+      out.write("                                        ");
   } else if (rs.getString(6).equals("Processing")) {
       out.write("\n");
-      out.write("                                    <form action=\"chgstatus3\" method=\"Get\">\n");
-      out.write("                                        <input type=\"hidden\" name=\"cid\" value=\"");
+      out.write("                                        <form action=\"chgstatus3\" method=\"Get\">\n");
+      out.write("                                            <input type=\"hidden\" name=\"cid\" value=\"");
       out.print(t2);
       out.write("\">\n");
+      out.write("                                            ");
+      out.write("\n");
+      out.write("\n");
+      out.write("                                            <input type=\"submit\" class=\"btn btn-success btn-sm\" id=\"button\" value=\"Resolved\">\n");
+      out.write("                                        </form>\n");
       out.write("                                        ");
-      out.write("\n");
-      out.write("                                        <input type=\"submit\" value=\"Resolved\">\n");
-      out.write("                                    </form>\n");
-      out.write("                                    ");
 
-                                    } else {
-                                    
+                                        } else {
+                                        
       out.write("\n");
-      out.write("                                    <input type=\"hidden\" name=\"id\" value=\"");
+      out.write("                                        <input type=\"hidden\" name=\"id\" value=\"");
       out.print(t2);
       out.write("\">\n");
-      out.write("                                    No Action\n");
+      out.write("                                        No Action\n");
       out.write("\n");
       out.write("\n");
-      out.write("                                           ");
+      out.write("                                        ");
   }
       out.write("\n");
-      out.write("                                </td>\n");
-      out.write("                                    \n");
-      out.write("                            </tr>\n");
+      out.write("                                    </td>\n");
       out.write("\n");
+      out.write("                                </tr>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                                ");
+
+                                    }
+
+                                
+      out.write("\n");
+      out.write("\n");
+      out.write("                            </tbody>\n");
       out.write("\n");
       out.write("                            ");
-
-                                }
-
-                            
       out.write("\n");
-      out.write("\n");
-      out.write("                        </thead>\n");
-      out.write("\n");
-      out.write("                        ");
-      out.write("\n");
-      out.write("                    </table>\n");
+      out.write("                        </table>\n");
+      out.write("                    </section>\n");
       out.write("                    ");
                  }
 

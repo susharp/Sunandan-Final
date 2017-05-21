@@ -50,6 +50,7 @@ public class cregister extends HttpServlet {
             ps.setString(2, cname);
             ps.setString(3, textarea);
             
+            
             int i = ps.executeUpdate();
             if (i >= 1) {
                 request.setAttribute("status", "thank you for  Registering your complaint. ");
