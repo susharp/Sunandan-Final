@@ -60,28 +60,10 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"css/dsw.css\">\n");
       out.write("        <script src=\"js/jquery-3.1.1.js\"></script>\n");
       out.write("        <script src=\"js/bootstrap.min.js\"></script>\n");
-      out.write("        <script src=\"js/app.js\"></script>\n");
       out.write("        <script src=\"js/DSWController.js\"></script>\n");
       out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js\"></script>\n");
       out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js\"></script>\n");
-      out.write("        <script>\n");
-      out.write("            var app = angular.module(\"myApp\", [\"ngRoute\"]);\n");
-      out.write("            app.config(function ($routeProvider) {\n");
-      out.write("                $routeProvider\n");
-      out.write("                        .when(\"/\", {\n");
-      out.write("                            templateUrl: \"tables/mess.html\"\n");
-      out.write("                        })\n");
-      out.write("                        .when(\"/#mess\", {\n");
-      out.write("                            templateUrl: \"tables/mess.html\"\n");
-      out.write("                        })\n");
-      out.write("                        .when(\"/#SRC\", {\n");
-      out.write("                            templateUrl: \"tables/SRC.html\"\n");
-      out.write("                        })\n");
-      out.write("                        .when(\"/#ASET\", {\n");
-      out.write("                            templateUrl: \"tables/ASET.html\"\n");
-      out.write("                        });\n");
-      out.write("            });\n");
-      out.write("        </script>\n");
+      out.write("                <script src=\"js/app.js\"></script>\n");
       out.write("        <script>\n");
       out.write("            $(document).ready(function () {\n");
       out.write("                $('.dropdown-submenu a.test').on(\"click\", function (e) {\n");
@@ -90,6 +72,13 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    e.preventDefault();\n");
       out.write("                });\n");
       out.write("            });\n");
+      out.write("            \n");
+      out.write("            function myreq(){\n");
+      out.write("               var elem = document.getElementById(\"bt1\");\n");
+      out.write("    if (elem.value==\"Pending\") elem.value = \"Processing\";\n");
+      out.write("    else elem.value = \"Close Curtain\";\n");
+      out.write("                \n");
+      out.write("            }\n");
       out.write("        </script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -152,7 +141,7 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
                     
       out.write("\n");
       out.write("                    <br><br><br>\n");
-      out.write("                    <section id=\"table1\">\n");
+      out.write("                   < <section id=\"table1\">\n");
       out.write("                        <table class=\"table table-bordered table-responsive\">\n");
       out.write("                            <thead>\n");
       out.write("                                <tr>\n");
@@ -175,7 +164,9 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
                                     Class.forName("com.mysql.jdbc.Driver");
                                     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull", "root", "1234");
                                     ResultSet rs = connfac.getCon().createStatement().executeQuery("select * from complaints where comp_cat='" + cgroup + "'");
+                                 
                                     while (rs.next()) {
+                                       
                                         t1 = rs.getString(1);
                                         t2 = rs.getString(2);
                                         t3 = rs.getString(3);
@@ -210,7 +201,7 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        ");
   if (rs.getString(6).equals("Pending")) {
       out.write("\n");
-      out.write("                                        <form action=\"Chgstatus1\" method=\"Get\">\n");
+      out.write("                                        <form action=\"Chgstatus1 method=\"Get\">\n");
       out.write("                                            <input type=\"hidden\" name=\"cid\" value=\"");
       out.print(t2);
       out.write("\">\n");
@@ -262,7 +253,7 @@ public final class searchc_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            ");
       out.write("\n");
       out.write("                        </table>\n");
-      out.write("                    </section>\n");
+      out.write("                    </section>--%>\n");
       out.write("                    ");
                  }
 

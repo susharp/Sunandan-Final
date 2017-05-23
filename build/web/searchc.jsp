@@ -25,6 +25,13 @@
                     e.preventDefault();
                 });
             });
+            
+            function myreq(){
+               var elem = document.getElementById("bt1");
+    if (elem.value=="Pending") elem.value = "Processing";
+    else elem.value = "Close Curtain";
+                
+            }
         </script>
     </head>
     <body>
@@ -107,7 +114,9 @@
                                     Class.forName("com.mysql.jdbc.Driver");
                                     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull", "root", "1234");
                                     ResultSet rs = connfac.getCon().createStatement().executeQuery("select * from complaints where comp_cat='" + cgroup + "'");
+                                 
                                     while (rs.next()) {
+                                       
                                         t1 = rs.getString(1);
                                         t2 = rs.getString(2);
                                         t3 = rs.getString(3);
@@ -127,7 +136,7 @@
                                     <td>
 
                                         <%  if (rs.getString(6).equals("Pending")) {%>
-                                        <form action="Chgstatus1" method="Get">
+                                        <form action="Chgstatus1" method="POST">
                                             <input type="hidden" name="cid" value="<%=t2%>">
 
                                             <input type="submit" class="btn btn-primary btn-sm" id="button" value="Processing">

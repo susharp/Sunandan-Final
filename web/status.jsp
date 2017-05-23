@@ -56,7 +56,7 @@ setTimeout("disableBackButton()", 5);
             <div class="dropdown-container">
                 <button class="btn btn-default pull-right info-button dropdown-toggle" data-toggle="dropdown">&#9776;</button>
                 <ul class="dropdown-menu pull-right" id="dropdown-top">
-                    <li><a href="#" tabindex="-1"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Change Profile</a></li>
+                    <li><a href="profile.jsp" tabindex="-1"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Change Profile</a></li>
                     <li><a href="usertest" tabindex="-1"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a></li>
                 </ul>
             </div>
@@ -125,12 +125,33 @@ setTimeout("disableBackButton()", 5);
         <tr class="active">
             <td>
         <div>
-            <label class="label-in">Current Status: </label>
+            <label class="label-in">All complaints: </label>
             <label class="label-out"></label>
         </div>
             </td>
             <td>
-                
+                 <select id="options" onchange="member(this.id, 'label-mem')" data-live-search="true" name="cgroup">
+                            <optgroup label="Food and Hostel">
+                                <option class="text-center" id="Mess" value="#mess">Mess</option>
+                                <option class="text-center" id="Food Trucks" value="Food Trucks">Food Trucks</option>
+                                <option class="text-center" id="Hostel" value="Hostel">Hostel</option>
+                            </optgroup>
+                            <optgroup label="Medical">
+                                <option class="text-center" id="MI Room" value="MI Room">MI Room</option>
+                            </optgroup>
+                            <optgroup label="Transport and Security">
+                                <option class="text-center" id="Transport" value="Transport">Transport</option>
+                            </optgroup>
+                            <optgroup label="Fees and Accounts">
+                                <option class="text-center" id="Fees" value="Fees and Accounts">Fees and Accounts</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option class="text-center" id="Library" value="Library">Library</option>
+                                <option class="text-center" id="SRC" value="#SRC">Student Resource Center (SRC)</option>
+                                <option class="text-center" id="IT" value="#ASET">ASET</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit" class="send">submit</button> 
             </td>
         </tr>
         

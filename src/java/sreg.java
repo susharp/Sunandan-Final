@@ -32,33 +32,35 @@ public class sreg extends HttpServlet {
                   String email=request.getParameter("email");
                                      
             String password=request.getParameter("password");
+            String confirmpassword=request.getParameter("confirmpassword");
              String dept=request.getParameter("dept");
-              String branch=request.getParameter("branch");
+            //  String branch=request.getParameter("branch");
               String idno=request.getParameter("idno");
-              FileInputStream fis=null; 
-              String photo=request.getParameter("photo");
-              File image= new File(photo); 
+             //FileInputStream fis=null; 
+              //String photo=request.getParameter("photo");
+            //  File image= new File(photo); 
               
               
-            String q="insert into students values(?,?,?,?,?,?,?,?)";
+            String q="insert into students values(?,?,?,?,?,?,?)";
             
             PreparedStatement ps = connfac.getCon().prepareStatement(q);
-            ps.setString(1, fname);
-            
+            ps.setString(1, fname);            
             ps.setString(2, lname);
             ps.setString(3, email);
             ps.setString(4, password);
-            ps.setString(5, dept);
-            ps.setString(6, branch);
+            ps.setString(5, confirmpassword);
+            ps.setString(6, dept);           
             ps.setString(7, idno);
-            fis=new FileInputStream(image); 
-            ps.setBinaryStream(8, (InputStream) fis, (int) (image.length())); 
+           // fis=new FileInputStream(image); 
+           // ps.setBinaryStream(8, (InputStream) fis, (int) (image.length())); 
             
             
            
            int i= ps.executeUpdate();
             if(i>=1)
             {
+               
+                
             request.setAttribute("status", "Successfully registered ");
             
             }

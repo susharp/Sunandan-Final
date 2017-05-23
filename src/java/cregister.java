@@ -53,7 +53,13 @@ public class cregister extends HttpServlet {
             
             int i = ps.executeUpdate();
             if (i >= 1) {
+               
                 request.setAttribute("status", "thank you for  Registering your complaint. ");
+                RequestDispatcher rd = request.getRequestDispatcher("complaint.jsp");
+                 //response.sendRedirect("complaint.jsp");
+            rd.forward(request, response);
+            
+             
 
             } else {
                 request.setAttribute("status", "Sorry, Server Problem !");

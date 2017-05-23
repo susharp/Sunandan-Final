@@ -7,8 +7,10 @@
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html >
+<html>
     <head>
+
+
         <meta charset="UTF-8">
         <title>Sign-Up/Login Form</title>
         <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
@@ -17,15 +19,6 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script type="text/javascript" src="countryStateCity.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#dialog").dialog();
-
-                $("#opener").on("click", function () {
-                    $("#dialog").dialog("open");
-                });
-            });
-        </script>
 
 
 
@@ -42,7 +35,7 @@
                 <center>
                     Dear Student ,
                     <%=status%><br>
-                    Thank you ! For your time.
+                    Please enter a valid details
                 </center>
                 </font>
 
@@ -92,42 +85,64 @@
                             </label>
                             <input type="password" name="password" id="password" required autocomplete="off"/>
                         </div>
+                        <div class="field-wrap">
+                            <label>
+                                Confirm your Password<span class="req">*</span>
+                            </label>
+                            <input type="password" name="confirmpassword" id="confirm_password" required autocomplete="off"/>
+                        </div>
+                        <script>
+                            var password = document.getElementById("password")
+                                    , confirm_password = document.getElementById("confirm_password");
+
+                            function validatePassword() {
+                                if (password.value != confirm_password.value) {
+                                    confirm_password.setCustomValidity("Passwords Don't Match");
+                                } else {
+                                    confirm_password.setCustomValidity('');
+                                }
+                            }
+
+                            password.onchange = validatePassword;
+                            confirm_password.onkeyup = validatePassword;
+                        </script>
+
 
                         <div class="field-wrap">
-                            <label>
-                                Department<span></span>
-                            </label>
-                            <select class="selectpicker form-control" id="country" name="dept" data-width="auto">
-                                <option>ASET</option>
-                                <option>AIB</option>
-                            </select>
-                        </div>
-                        <div class="field-wrap">
-                            <label>
-                                Branch<span></span>
-                            </label>
-                            <select class="selectpicker form-control" id="state" name="branch" data-width="auto">
-                                <option>CSE</option>
-                                <option>IT</option>
+                            <select class="form-control" id="country" name="dept" data-width="auto">
+                                <optgroup label="ASET">
+                                    <option>CSE</option>
+                                    <option>MAE</option>
+                                    <option>ECE/EEE</option>
+                                    <option>Civil/Chemical</option>
+                                </optgroup>
+                                <optgroup label="ABS">
+                                    <option>BCOM</option>
+                                    <option>BBA</option>
+                                    <option>MBA</option>
+                                    <option>MCOM</option>
+                                </optgroup>
+                                <option class="bold">ASAP</option>
+                                <option class="bold">ALS</option>
                             </select>
                         </div>
                         <div class="field-wrap">
                             <label>
                                 ID Card Number<span class="req">*</span>
                             </label>
-                            <input type="number" name="idno" required="off"/>
+                            <input pattern=".{8,8}" type="text" name="idno" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required="on" maxlength="8" size="8" minlength="8"/>
                         </div>
- <%--
-            Connection conn = null;
-            PreparedStatement pstmt = null;
-            ResultSet rs = null;
-            String url = "jdbc:mysql://localhost:3306/test";//Here the "test" is the Database name
-            FileInputStream fis = null;
-            try {
-                 Connection con = null;
-                    Class.forName("com.mysql.jdbc.Driver");
-             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull","root","1234");
-            }--%>
+                        <%--
+                                   Connection conn = null;
+                                   PreparedStatement pstmt = null;
+                                   ResultSet rs = null;
+                                   String url = "jdbc:mysql://localhost:3306/test";//Here the "test" is the Database name
+                                   FileInputStream fis = null;
+                                   try {
+                                        Connection con = null;
+                                           Class.forName("com.mysql.jdbc.Driver");
+                                    con= DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull","root","1234");
+                                   }--%>
                         <div class="field-wrap">
                             <label>
                                 Image Link
@@ -137,9 +152,20 @@
                         </div>
 
                         <button type="submit" id="opener" class="button button-block">Get Started</button>
+                        <script>
+                            $(document).ready(function () {
+                                $("#dialog").dialog();
+
+                                $("#opener").on("click", function () {
+                                    $("#dialog").dialog("open");
+                                });
+                            });
+                        </script>
+
                         <div id="dialog" title="Basic dialog">
                             <p> The dialog window can be moved, resized and closed with the 'x' icon.</p>
                         </div>
+                        
                     </form>
 
                 </div>
@@ -163,7 +189,7 @@
                             <input type="password" name="password" required autocomplete="off"/>
                         </div>
 
-                        <p class="forgot"><a href="#">Forgot Password?</a></p>
+                        <p class="forgot"><a href="forgotpass.jsp">Forgot Password?</a></p>
 
                         <button class="button button-block">Log In</button>
 

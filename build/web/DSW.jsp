@@ -12,13 +12,13 @@
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/DSWController.js"></script>
-        <script type = "text/javascript" >
+    <script type = "text/javascript" >
 function disableBackButton()
 {
 window.history.forward();
 }
 setTimeout("disableBackButton()", 5);
-</script>
+    </script>
     <script>
         $(document).ready(function(){
             $('.dropdown-submenu a.test').on("click", function(e){
@@ -69,12 +69,12 @@ setTimeout("disableBackButton()", 5);
     <span onClick="openNav()">&#9776;</span>
     <h3 class="text-center">Write a personal message to <span id="mark">Dean Student Welfare</span></h3>
     <br><br>
-    <form action="review2" method="post">
+    <form action="review2" method="POST">
         <div>
              <input type="hidden" value="<% out.print(email); %>" name="ids">
         </div>
     <div>
-        <textarea maxlength="300" class="form-control text-center" placeholder="Write here." name="textarea" ng-model="complaint"></textarea>
+        <textarea maxlength="300" class="form-control text-center" placeholder="Write here." name="textarea" ng-model="complaint" required autocomplete="off"></textarea>
     </div><label class="pull-right"><span class="red">*</span><small>Max. of 300 Words are allowed</small></label>
     <div>
         <h4><b>Your complaint looks like:</b></h4>

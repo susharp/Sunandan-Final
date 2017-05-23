@@ -30,7 +30,7 @@ public class review1 extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
        

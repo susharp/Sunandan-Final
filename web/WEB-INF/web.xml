@@ -72,6 +72,14 @@
         <servlet-name>chgstatus3</servlet-name>
         <servlet-class>chgstatus3</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>forgotpassword</servlet-name>
+        <servlet-class>forgotpassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>renewpassword</servlet-name>
+        <servlet-class>renewpassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>regis</servlet-name>
         <url-pattern>/regis</url-pattern>
@@ -143,6 +151,14 @@
     <servlet-mapping>
         <servlet-name>chgstatus3</servlet-name>
         <url-pattern>/chgstatus3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>forgotpassword</servlet-name>
+        <url-pattern>/forgotpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>renewpassword</servlet-name>
+        <url-pattern>/renewpassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>10</session-timeout>
