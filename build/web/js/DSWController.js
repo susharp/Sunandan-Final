@@ -1,13 +1,7 @@
 /**
  * Created by ReeVerse on 23-04-2017.
  */
+var app = angular.module('DSWMatter', [])
 app.controller('DSWController', function ($scope) {
    $scope.complaint = "";
-});
-app.filter('format', function () {
-    return function (input) {
-        if (input) {
-           return input.replace(/\n/g, "<br />");
-        }
-    };
-});
+})

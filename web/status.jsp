@@ -45,7 +45,6 @@ setTimeout("disableBackButton()", 5);
 </nav>
 <div id="mySideNav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#"> Profile</a>
     <a href="complaint.jsp"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Post a Complaint</a>
     <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Check Status</a>
     <a href="DSW.jsp"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Write to DSW</a>
@@ -57,15 +56,17 @@ setTimeout("disableBackButton()", 5);
                 <button class="btn btn-default pull-right info-button dropdown-toggle" data-toggle="dropdown">&#9776;</button>
                 <ul class="dropdown-menu pull-right" id="dropdown-top">
                     <li><a href="profile.jsp" tabindex="-1"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Change Profile</a></li>
-                    <li><a href="usertest" tabindex="-1"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a></li>
+                    <li><a href="cstatus" tabindex="-1"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out</a></li>
                 </ul>
             </div>
             <img src="prateek1.jpg" class="img-circle img-thumbnail pull-right" width="40" height="50">
             <label id="user-name" class="pull-right">
+               
                  <%
                     String email = session.getAttribute("emails").toString();
                     session.setAttribute("id", email);
                  %>
+                 
                      <%
                         out.print(email);
                         %>

@@ -18,7 +18,7 @@
         <!--navbar -->
         <nav class="navbar">
         <div class="navbar-inner">
-            <a><img src="logo.png" width="100%" height="100%"></a>
+            <a><img src="images/logo.png" width="100%" height="100%"></a>
         </div>
         </nav>
         <!--inner body-->

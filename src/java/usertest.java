@@ -41,7 +41,8 @@ public class usertest extends HttpServlet {
         PrintWriter out = response.getWriter();
        // checkValidity();
         try {
-            String status = null;
+           
+            String fname=request.getParameter("fname");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             HttpSession session = request.getSession();
@@ -58,6 +59,7 @@ public class usertest extends HttpServlet {
                 }
             }*/
             if(rs.first()){
+            //    session.setAttribute("name",fname);
                 session.setAttribute("emails", email);
                  request.getRequestDispatcher("complaint.jsp").include(request, response);  
             }else{

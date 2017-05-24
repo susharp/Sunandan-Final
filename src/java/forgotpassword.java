@@ -41,8 +41,35 @@ public class forgotpassword extends HttpServlet {
             String email = request.getParameter("email");
             String idno = request.getParameter("idno");
             String password = request.getParameter("password");
+            String emails,id;
+           
+            if(rs.First())
+            {
             
-            if (email.matches(idno)) {
+                  emails = rs.getText(1);
+                  id = rs.getText(2);
+               if(id.equals(idno))
+               {
+                   
+               }
+               else
+               {
+                 wrong id
+               
+               }
+            
+            }
+            else
+            {
+            incorrect email or id
+            
+            }
+            
+            
+            
+            
+            
+            if (email.matches(amity_id) && idno.matches(id_card_number)) {
                   System.out.print("okhsgfhhsh1111111111122222222222222");
                 connfac.getCon().createStatement().executeUpdate("update students set password='" + password + "' where amity_id='" + email + "'");
                 request.setAttribute("status", "Password Changed : " + new Date().toString());

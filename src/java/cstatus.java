@@ -39,6 +39,7 @@ public class cstatus extends HttpServlet {
         try{
               String cname=request.getParameter("cname");
             String textarea=request.getParameter("textarea");
+             HttpSession session = request.getSession();
             String q="select cdate from complaints where(select complaint)  (Complaint_Category,Description,cdate) " + "values(?,?,NOW())";
              PreparedStatement ps=  connfac.getCon().prepareStatement(q);
               ps.setString(1,cname);
@@ -138,8 +139,9 @@ public class cstatus extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         session.removeAttribute("id");
+         session.setAttribute("id",null); 
         response.sendRedirect("index.jsp");
         processRequest(request, response);
     }

@@ -10,15 +10,14 @@
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
     <script src="js/DSWController.js"></script>
-    <script type = "text/javascript" >
+        <script type = "text/javascript" >
 function disableBackButton()
 {
 window.history.forward();
 }
 setTimeout("disableBackButton()", 5);
-    </script>
+</script>
     <script>
         $(document).ready(function(){
             $('.dropdown-submenu a.test').on("click", function(e){
@@ -39,7 +38,6 @@ setTimeout("disableBackButton()", 5);
 </nav>
 <div id="mySideNav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Home</a>
     <a href="complaint.jsp"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Post a Complaint</a>
     <a href="status.jsp"><i class="fa fa-tasks" aria-hidden="true"></i> Check Status</a>
     <a href="DSW.jsp"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Write to DSW</a>
@@ -69,13 +67,13 @@ setTimeout("disableBackButton()", 5);
     <span onClick="openNav()">&#9776;</span>
     <h3 class="text-center">Write a personal message to <span id="mark">Dean Student Welfare</span></h3>
     <br><br>
-    <form action="review2" method="POST">
+    <form action="review1" method="post">
         <div>
              <input type="hidden" value="<% out.print(email); %>" name="ids">
         </div>
     <div>
         <textarea maxlength="300" class="form-control text-center" placeholder="Write here." name="textarea" ng-model="complaint" required autocomplete="off"></textarea>
-    </div><label class="pull-right"><span class="red">*</span><small>Max. of 300 Words are allowed</small></label>
+    </div><label class="pull-right"><span class="red">*</span><small>Max. of 300 characters are allowed</small></label>
     <div>
         <h4><b>Your complaint looks like:</b></h4>
         <p class="text-pre-wrap"><b>"{{complaint}}"</b></p>

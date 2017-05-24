@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/profile.jsp</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/forgotpassword.java</file>
             <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/complaint.jsp</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/index.jsp</file>
+            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/cstatus.java</file>
+            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/profile.jsp</file>
+            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/usertest.java</file>
             <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/DSW.jsp</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/review2.java</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/review.java</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/review1.java</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/status.jsp</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/forgotpass.jsp</file>
-            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/src/java/Cuserp.java</file>
+            <file>file:/C:/Users/sunan/Documents/NetBeansProjects/Complaint_Management/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

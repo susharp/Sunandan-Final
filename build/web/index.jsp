@@ -143,13 +143,13 @@
                                            Class.forName("com.mysql.jdbc.Driver");
                                     con= DriverManager.getConnection("jdbc:mysql://localhost:3306/complaint management?zeroDateTimeBehavior=convertToNull","root","1234");
                                    }--%>
-                        <div class="field-wrap">
+                        <%--    <div class="field-wrap">
                             <label>
                                 Image Link
                             </label>
 
                             <input type="file" name="photo" id="file">
-                        </div>
+                        </div>--%>
 
                         <button type="submit" id="opener" class="button button-block">Get Started</button>
                         <script>
